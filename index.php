@@ -24,6 +24,7 @@ function validate_phone(&$phone) {
 }
 
 $spool_path  = '/var/spool/asterisk/outgoing/';
+$device_id   = 'dongle0';
 $is_writable = is_writable($spool_path);
 
 $name       = '';
@@ -39,7 +40,7 @@ $songs      = array(
   'rieng-mot-goc-troi' => 'Riêng một góc trời (Tuấn Ngọc)',
 );
 
-if($submitted) {
+if($is_writable && $submitted) {
   $name      = get_value('name');
   $phone     = get_value('phone');
   $song      = get_value('song');
@@ -87,7 +88,19 @@ if($submitted) {
   }
 
   if($validated) {
+    $file = time() . '_' . $name . '_' . $phone . '_' . $song . '_' . rand(0, 1000);
+    $file = $spool_path . '/' . md5($file) . '.call';
 
+    if($fp = @fopen($file, 'wb')) {
+      fwrite($fp, "Channel: Dongle/$device_id/$phone\n");
+      fwrite($fp, "Application: Playback\n");
+      fwrite($fp, "Data: $song");
+
+      fclose($fp);
+    }
+    else {
+      $messages['error'][] = 'Server cannot make outgoing call, Please contact site administrator.';
+    }
   }
 }
 

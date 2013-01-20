@@ -36,7 +36,7 @@ $songs      = array(
   'alone'              => 'Alone (Celine Dion)',
   'i-am-your-angel'    => 'I\'m your angel (Celine Dion)',
   'gangnam-style'      => 'Gangnam Style (PSY)',
-  'misty-moutain'      => 'Misty Moutain (Richard Armitage and the dwarf cast)',
+  'misty-mountain'     => 'Misty Moutain (Richard Armitage and the dwarf cast)',
   'rieng-mot-goc-troi' => 'Riêng một góc trời (Tuấn Ngọc)',
 );
 

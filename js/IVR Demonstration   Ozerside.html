@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!-- saved from url=(0030)http://ivr.local.net/index.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="en" lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en">
+  
+  <link rel="shortcut icon" href="http://ivr.local.net/images/favicon.png" type="image/png">
+  <title>IVR Demonstration | Ozerside</title>
+  <link rel="stylesheet" type="text/css" href="./IVR Demonstration   Ozerside_files/style.css">
+  <script type="text/javascript" src="./IVR Demonstration   Ozerside_files/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head><body style="zoom: 1;" screen_capture_injected="true">
+
+  <div id="page">
+    <div id="logo"></div>
+    <h1 id="title"><span>IVR Demo</span></h1>
+
+        <div class="message error">
+              Please tell me your name :-)
+          </div>
+    
+    <form id="ivr" action="./IVR Demonstration   Ozerside_files/IVR Demonstration   Ozerside.html" method="POST">
+      <table id="form" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td><label for="name">Name</label></td>
+          <td><input type="text" id="name" name="name" size="60"></td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone number</label></td>
+          <td><input type="text" id="phone" name="phone" size="60"></td>
+        </tr>
+        <tr>
+          <td><label for="song">Song</label></td>
+          <td>
+            <select name="song" id="song">
+                              <option value="alone">Alone (Celine Dion)</option>
+                              <option value="i-am-your-angel">I'm your angel (Celine Dion)</option>
+                              <option value="gangnam-style">Gangnam Style (PSY)</option>
+                              <option value="misty-moutain">Misty Moutain (Richard Armitage and the dwarf cast)</option>
+                              <option value="rieng-mot-goc-troi">Riêng một góc trời (Tuấn Ngọc)</option>
+                          </select>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>
+            <div class="button" onclick="document.forms[&#39;ivr&#39;].submit();">
+              <span>Call me</span>
+            </div>
+            <input type="hidden" name="submitted" value="1">
+            <input type="submit" style="visibility: hidden;">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <p class="toc">
+              * Your name and phone and any other information you provide aren't
+              stored in our database. We ask you this information only so we can
+              make a test call to you. We do not sell or share your information
+              with anyone else.
+            </p>
+          </td>
+        </tr>
+      </tbody></table>
+    </form>
+  </div>
+</body></html>

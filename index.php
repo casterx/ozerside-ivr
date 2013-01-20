@@ -33,6 +33,7 @@ $song       = '';
 $submitted  = get_value('submitted') | 0;
 $messages   = array();
 $songs      = array(
+  'baptiste'           => 'Baptiste\' voice',
   'alone'              => 'Alone (Celine Dion)',
   'i-am-your-angel'    => 'I\'m your angel (Celine Dion)',
   'gangnam-style'      => 'Gangnam Style (PSY)',

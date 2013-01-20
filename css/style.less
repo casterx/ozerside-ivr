@@ -42,6 +42,19 @@
   background: -o-linear-gradient(centertop, @from_color, @to_color);
 }
 
+.user-select(@select) {
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.unselectable() {
+  .user-select(none);
+}
+
 html, body {
   margin : 0;
   padding: 0;
@@ -146,15 +159,16 @@ select {
   }
 }
 
-.button{
-  padding:5px 12px 5px 10px;
-  border:1px solid #3079ED;
-  color:#fff;
-  line-height:24px;
-  display:inline-block;
-  cursor:pointer;
-  margin-top:20px;
+.button {
+  padding    : 5px 12px 5px 10px;
+  border     : 1px solid #3079ED;
+  color      : #fff;
+  line-height: 24px;
+  display    : inline-block;
+  cursor     : pointer;
+  margin-top : 20px;
 
+  .unselectable;
   .box-sizing(border-box);
   .box-shadow(0 1px 2px rgba(0,0,0,0.3) inset);
   .border-radius(3px);
@@ -168,6 +182,12 @@ select {
     padding   : 0 0 0 26px;
     background: url("@{image_path}/call_start.png") 0 50% no-repeat;
   }
+}
+
+.button.disabled {
+  .background-gradient(#ECECEC, #F8F8F8);
+  border-color: #C6C6C6;
+  color       : #C6C6C6;
 }
 
 .toc {

@@ -4,6 +4,7 @@ function get_value($name) {
   return isset($_POST[$name]) ? $_POST[$name] : null;
 }
 
+// Check for vietnam network only
 function validate_phone(&$phone) {
   $phone   = str_replace(' ', '', $phone);
   $pattern = '~^
@@ -33,7 +34,7 @@ $song       = '';
 $submitted  = get_value('submitted') | 0;
 $messages   = array();
 $songs      = array(
-  'baptiste'           => 'Baptiste\' voice',
+  'baptiste'           => 'Baptiste\'s voice',
   'alone'              => 'Alone (Celine Dion)',
   'i-am-your-angel'    => 'I\'m your angel (Celine Dion)',
   'gangnam-style'      => 'Gangnam Style (PSY)',
@@ -96,13 +97,13 @@ if($is_writable && $submitted) {
       fwrite($fp, "Channel: Dongle/$device_id/$phone\n");
       fwrite($fp, "Application: Playback\n");
       fwrite($fp, "Data: $song");
-
       fclose($fp);
 
       $messages['message'][] = "Thank you $name for using our IVR Demo. You will receive a call shortly.";
     }
     else {
       $messages['error'][] = 'Server cannot make outgoing call, Please contact site administrator.';
+      $is_writable = false;
     }
   }
 }
@@ -120,15 +121,16 @@ if(!$is_writable) {
       lang="en"
       version="XHTML+RDFa 1.0"
       dir="ltr"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:sioc="http://rdfs.org/sioc/ns#"
-  xmlns:sioct="http://rdfs.org/sioc/types#"
-  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+      xmlns:content="http://purl.org/rss/1.0/modules/content/"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:sioc="http://rdfs.org/sioc/ns#"
+      xmlns:sioct="http://rdfs.org/sioc/types#"
+      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+>
 
 <head profile="http://www.w3.org/1999/xhtml/vocab">
   <meta http-equiv="Content-Language" content="en">
@@ -176,17 +178,17 @@ if(!$is_writable) {
         <tr>
           <td>&nbsp;</td>
           <td>
-            <div class="button" onclick="document.forms['ivr'].submit();">
+            <div class="button<?php echo $is_writable ? '' : ' disabled' ?>" id="submit" onclick="document.forms['ivr'].submit();">
               <span>Call me</span>
             </div>
             <input type="hidden" name="submitted" value="1" />
-            <input type="submit" style="visibility: hidden;" />
+            <input type="submit" style="visibility: hidden;"  />
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <p class="toc">
-              * Your name and phone and any other information you provide aren't
+              * Your name, phone and any other information you provide aren't
               stored in our database. We ask you this information only so we can
               make a test call to you. We do not sell or share your information
               with anyone else.
@@ -196,4 +198,14 @@ if(!$is_writable) {
       </table>
     </form>
   </div>
+  <?php if(!$is_writable) : ?>
+  <script type="text/javascript">
+    function submit() {
+      return false;
+    };
+
+    document.forms['ivr'].onsubmit = submit;
+    document.forms['ivr'].submit = submit;
+  </script>
+  <?php endif; ?>
 </body>

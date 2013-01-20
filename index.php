@@ -97,6 +97,8 @@ if($is_writable && $submitted) {
       fwrite($fp, "Data: $song");
 
       fclose($fp);
+
+      $messages['message'][] = "Thank you $name for using our IVR Demo. You will receive a call shortly.";
     }
     else {
       $messages['error'][] = 'Server cannot make outgoing call, Please contact site administrator.';

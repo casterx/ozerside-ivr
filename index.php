@@ -185,6 +185,7 @@ if(!$is_writable) {
             <div class="button<?php echo $is_writable ? '' : ' disabled' ?>" id="submit" onclick="document.forms['ivr'].submit();">
               <span>Call me</span>
             </div>
+            <br/>
             <input type="hidden" name="submitted" value="1" />
             <input type="submit" style="visibility: hidden;"  />
           </td>

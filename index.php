@@ -192,7 +192,7 @@ $num_songs = count($songs);
             </div>
             <br/>
             <input type="hidden" name="submitted" value="1" />
-            <?php if($num_songs > 1) : ?>
+            <?php if($num_songs == 1) : ?>
             <input type="hidden" name="song" value="<?php echo key($songs) ?>" />
             <?php endif; ?>
             <input type="submit" style="visibility: hidden;"  />

@@ -34,13 +34,13 @@ $song       = '';
 $submitted  = get_value('submitted') | 0;
 $messages   = array();
 $songs      = array(
-  'we-are-the-champion' => 'We are the champion',
-  // 'baptiste'            => 'Baptiste\'s voice',
-  // 'alone'               => 'Alone (Celine Dion)',
-  // 'i-am-your-angel'     => 'I\'m your angel (Celine Dion)',
-  // 'gangnam-style'       => 'Gangnam Style (PSY)',
-  // 'misty-mountain'      => 'Misty Moutain (Richard Armitage and the dwarf cast)',
-  // 'rieng-mot-goc-troi'  => 'Riêng một góc trời (Tuấn Ngọc)',
+  'we-are-the-champions' => 'We are the champion',
+  // 'baptiste'             => 'Baptiste\'s voice',
+  // 'alone'                => 'Alone (Celine Dion)',
+  // 'i-am-your-angel'      => 'I\'m your angel (Celine Dion)',
+  // 'gangnam-style'        => 'Gangnam Style (PSY)',
+  // 'misty-mountain'       => 'Misty Moutain (Richard Armitage and the dwarf cast)',
+  // 'rieng-mot-goc-troi'   => 'Riêng một góc trời (Tuấn Ngọc)',
 );
 
 if($is_writable && $submitted) {

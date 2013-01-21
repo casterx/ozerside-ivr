@@ -181,7 +181,7 @@ if(!$is_writable) {
           </td>
         </tr>
         <tr>
-          <td colspan="2" valign="center">
+          <td colspan="2" style="text-align: center">
             <div class="button<?php echo $is_writable ? '' : ' disabled' ?>" id="submit" onclick="document.forms['ivr'].submit();">
               <span>Call me</span>
             </div>

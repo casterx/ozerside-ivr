@@ -3,7 +3,7 @@ body{font:20px RobotoRegular,Georgia,'Times New Roman','Bitstream Charter',Times
 #page{background:url("../images/worldmap.png") 50% 50% no-repeat;min-height:700px;padding:40px 0 0;}
 #logo{width:230px;height:230px;background:rgba(237, 237, 237, 0.6) url("../images/logo.png") 50% 50% no-repeat;margin:0 auto;border:2px solid #ffffff;-webkit-border-radius:115px;-moz-border-radius:115px;border-radius:115px;}
 #title{font-weight:normal;font-size:40px;line-height:48px;text-transform:uppercase;text-align:center;color:#333;margin:20px 0;}#title span{padding:0 0 0 58px;background:url("../images/call.png") 0 50% no-repeat;}
-.message{border:2px solid;margin:20px auto;padding:7px 10px 7px 38px;line-height:20px;font-size:16px;position:relative;min-height:24px;color:#234600;background:#f8fff0 url("../images/information.png") 10px 7px no-repeat;border-color:#BE7;}.message ul,.message li{margin:0;padding:0;list-style:none;line-height:16px;}
+.message{border:2px solid;padding:7px 10px 7px 38px;line-height:20px;font-size:16px;position:relative;min-height:24px;color:#234600;background:#f8fff0 url("../images/information.png") 10px 7px no-repeat;border-color:#BE7;}.message ul,.message li{margin:0;padding:0;list-style:none;line-height:16px;}
 .message li{padding:4px;}
 .message.error{color:#8c2e0b;border-color:#E10C0C;background:#ffcdd1 url("../images/error.png") 10px 7px no-repeat;}
 #form{margin:0 auto;width:500px;}

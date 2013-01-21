@@ -145,18 +145,22 @@ if(!$is_writable) {
     <div id="logo"></div>
     <h1 id="title"><span>IVR Demo</span></h1>
 
-    <?php foreach($messages as $type => $msgs) : ?>
-    <div class="message <?php echo $type ?>">
-      <ul>
-        <?php foreach($msgs as $message) : ?>
-        <li><?php echo $message ?></li>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-    <?php endforeach; ?>
-
     <form id="ivr" action="index.php" method="POST">
       <table id="form" border="0" cellpadding="0" cellspacing="0">
+        <?php if(!empty($messages)) : ?>
+        <tr>
+          <td colspan="2">
+          <?php foreach($messages as $type => $msgs) : ?>
+          <div class="message <?php echo $type ?>">
+            <ul>
+              <?php foreach($msgs as $message) : ?>
+              <li><?php echo $message ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <?php endforeach; ?>
+          </td>
+        </tr>
         <tr>
           <td><label for="name">Name</label></td>
           <td><input type="text" id="name" name="name" size="60" value="<?php echo $name ?>" /></td>
@@ -176,8 +180,7 @@ if(!$is_writable) {
           </td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td>
+          <td colspan="2" valign="center">
             <div class="button<?php echo $is_writable ? '' : ' disabled' ?>" id="submit" onclick="document.forms['ivr'].submit();">
               <span>Call me</span>
             </div>

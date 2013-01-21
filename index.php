@@ -34,12 +34,13 @@ $song       = '';
 $submitted  = get_value('submitted') | 0;
 $messages   = array();
 $songs      = array(
-  'baptiste'           => 'Baptiste\'s voice',
-  'alone'              => 'Alone (Celine Dion)',
-  'i-am-your-angel'    => 'I\'m your angel (Celine Dion)',
-  'gangnam-style'      => 'Gangnam Style (PSY)',
-  'misty-mountain'     => 'Misty Moutain (Richard Armitage and the dwarf cast)',
-  'rieng-mot-goc-troi' => 'Riêng một góc trời (Tuấn Ngọc)',
+  'we-are-the-champion' => 'We are the champion',
+  // 'baptiste'            => 'Baptiste\'s voice',
+  // 'alone'               => 'Alone (Celine Dion)',
+  // 'i-am-your-angel'     => 'I\'m your angel (Celine Dion)',
+  // 'gangnam-style'       => 'Gangnam Style (PSY)',
+  // 'misty-mountain'      => 'Misty Moutain (Richard Armitage and the dwarf cast)',
+  // 'rieng-mot-goc-troi'  => 'Riêng một góc trời (Tuấn Ngọc)',
 );
 
 if($is_writable && $submitted) {
@@ -112,6 +113,8 @@ if(!$is_writable) {
   $messages['error'][] = 'Server cannot make outgoing call, Please contact site administrator.';
 }
 
+$num_songs = count($songs);
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -170,6 +173,7 @@ if(!$is_writable) {
           <td><label for="phone">Phone number</label></td>
           <td><input type="text" id="phone" name="phone" size="60" value="<?php echo $phone ?>" /></td>
         </tr>
+        <?php if($num_songs > 1) : ?>
         <tr>
           <td><label for="song">Song</label></td>
           <td>
@@ -180,6 +184,7 @@ if(!$is_writable) {
             </select>
           </td>
         </tr>
+        <?php endif; ?>
         <tr>
           <td colspan="2" style="text-align: center">
             <div class="button<?php echo $is_writable ? '' : ' disabled' ?>" id="submit" onclick="document.forms['ivr'].submit();">
@@ -187,6 +192,9 @@ if(!$is_writable) {
             </div>
             <br/>
             <input type="hidden" name="submitted" value="1" />
+            <?php if($num_songs > 1) : ?>
+            <input type="hidden" name="song" value="<?php echo key($songs) ?>" />
+            <?php endif; ?>
             <input type="submit" style="visibility: hidden;"  />
           </td>
         </tr>

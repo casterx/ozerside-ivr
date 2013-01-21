@@ -160,6 +160,7 @@ if(!$is_writable) {
           </div>
           <?php endforeach; ?>
           </td>
+          <?php endif; ?>
         </tr>
         <tr>
           <td><label for="name">Name</label></td>
